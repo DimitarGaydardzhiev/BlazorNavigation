@@ -1,0 +1,13 @@
+﻿<nav class="navbar navbar-expand-lg navbar-nav">
+    <div class="container-fluid">
+        <CascadingValue Name="MenuLevel" Value="0">
+            <MenuItems>
+                @ChildContent
+            </MenuItems>
+        </CascadingValue>
+    </div>
+</nav>
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+}

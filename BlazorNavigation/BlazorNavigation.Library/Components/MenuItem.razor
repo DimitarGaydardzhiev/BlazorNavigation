@@ -1,0 +1,43 @@
+﻿@using BlazorNavigation.Library.Models
+@using Microsoft.AspNetCore.Components.Routing
+
+<li class="nav-item" @onmouseover="() => IsOpen = true" @onmouseout="() => IsOpen = false">
+    <NavLink class="@GetNavLinkClass()"
+             href="@Href"
+             role="button"
+             data-bs-toggle="dropdown"
+             aria-expanded="false">
+        @Text
+    </NavLink>
+
+    @if (HasSubItems)
+    {
+        <ul class="dropdown-menu @(IsOpen ? "show" : "")">
+            <CascadingValue Name="MenuLevel" Value="Level + 1">
+                <MenuItems>
+                    @ChildContent
+                </MenuItems>
+            </CascadingValue>
+        </ul>
+    }
+</li>
+
+@code {
+    [Parameter] public string Text { get; set; } = string.Empty;
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public string? Href { get; set; }
+    [CascadingParameter(Name = "MenuLevel")] public int Level { get; set; } = 0;
+
+    private bool IsOpen { get; set; } = false;
+    private bool HasSubItems => ChildContent != null;
+
+    private string GetNavLinkClass()
+    {
+        var classes = "nav-link";
+        if (HasSubItems)
+        {
+            classes += " dropdown-toggle";
+        }
+        return classes;
+    }
+}
