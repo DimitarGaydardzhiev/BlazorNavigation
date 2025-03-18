@@ -1,7 +1,7 @@
 ﻿@using BlazorNavigation.Library.Models
 @using Microsoft.AspNetCore.Components.Routing
 
-<li class="nav-item" @onmouseover="() => IsOpen = true" @onmouseout="() => IsOpen = false">
+<li class="nav-item" @onmouseover="() => IsOpen = true" @onmouseout="() => IsOpen = false" @onclick="() => IsOpen = false">
     <NavLink class="@GetNavLinkClass()"
              href="@Href"
              role="button"

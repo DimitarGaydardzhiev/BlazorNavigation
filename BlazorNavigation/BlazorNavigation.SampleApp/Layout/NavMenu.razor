@@ -1,22 +1,22 @@
 ﻿<Menu>
     <MenuItems>
-        <MenuItem Text="Home" Href="/" />
+        <MenuItem Text="Home" Href=@Routes.HomeRouteName />
         <MenuItem Text="Services">
             <MenuItems>
                 <MenuItem Text="Web Development">
                     <MenuItems>
-                        <MenuItem Text="Frontend" />
+                        <MenuItem Text="Frontend" Href=@Routes.FrotendDevPageRouteName />
                         <MenuItem Text="Backend">
                             <MenuItems>
-                                <MenuItem Text=".NET" />
-                                <MenuItem Text="Node.js" />
+                                <MenuItem Text=".NET" Href=@Routes.DotNetDevPageRouteName />
+                                <MenuItem Text="Node.js" Href=@Routes.NodeJsDevPageRouteName />
                             </MenuItems>
                         </MenuItem>
                     </MenuItems>
                 </MenuItem>
-                <MenuItem Text="Mobile Development" />
+                <MenuItem Text="Mobile Development" Href=@Routes.MobileDevPageRouteName />
             </MenuItems>
         </MenuItem>
-        <MenuItem Text="About" Href="/about" />
+        <MenuItem Text="About" Href=@Routes.AboutRouteName />
     </MenuItems>
 </Menu>
